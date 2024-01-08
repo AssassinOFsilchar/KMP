@@ -62,20 +62,32 @@ void solve(){
         {
             j=pi[j-1];
         }
-        
+        //  a   a   b   a   b   a   a   b
+        //  0   0   0   0   0   0   0   0
+        //  0   1   0   0   0   0   0   0
+        //  0   1   0   0   0   0   0   0
+        //  0   1   0   1   0   0   0   0
+        //  0   1   0   1   0   0   0   0
+        //  0   1   0   1   0   1   0   0
+        //  0   1   0   1   0   1   2   0
+        //  0   1   0   1   0   1   2   3
+         
 
         if(s[i]==s[j])
         j++;
 
         pi[i]=j;
 
-    } 
-    for(auto it:pi)
-    cout<<it<<" ";
+    }  
+    // for(auto it:pi)
+    // cout<<it<<"    ";
+    cout<<endl;
     string t;
     cin>>t;
-    int pos=-1;
+    vector<int>temp;
     int i(0),j(0);
+
+
     while (i<t.size())
     {
         if(t[i]==s[j])
@@ -90,14 +102,13 @@ void solve(){
                 i++;
         }
         if(j==s.size()){
-            pos=i-s.size();
-            break;
+            temp.push_back(i-s.size()); 
+            // bc woh out of bounds access krke check kra de rha hai 
         }
-        /* code */
+        
     }
-    cout<<endl;
-    cout<<pos;
-    
+    for(auto it:temp)
+    cout<<it<<" ";
     // TC is O(n)
     
 
